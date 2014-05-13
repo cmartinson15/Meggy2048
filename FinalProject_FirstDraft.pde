@@ -7,8 +7,8 @@ void setup()
 }
 
 int blockDirection;
-int BlockAmmount=4; //The ammount of blocks
-int marker=4; //Not sure if I need this or not yet.
+int blockAmount=3; //The ammount of blocks
+int marker=3; //Not sure if I need this or not yet.
 
 
 struct BlockEdge //This is the code for a block structure
@@ -19,32 +19,33 @@ struct BlockEdge //This is the code for a block structure
   int dir;
 };
 
+BlockEdge s1 = {6,7,12,270};
+BlockEdge s2 = {4,3,13,270};
+BlockEdge s3 = {0,1,14,270};
 
-BlockEdge s1 = {6,7,7,-1};
-BlockEdge s2 = {4,3,3,-1};
 
-
-BlockEdge blockArray[64] = {s1, s2};
+BlockEdge blockArray[64] = {s1, s2, s3};
 
 
 void loop()
 {
-  for (int i=0; i<marker; i++)
-    {
+  for (int i=0; i<blockAmount; i++)
+    { 
       drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
     }
   DisplaySlate();
   delay(125);
   Movement();
-  updateDirection();
+  updateBlockLocation();
+  ClearSlate();
   
   if (Button_A)
      printArray();
 }
 
-void printArray() //Got this from Kaityln's Github didn't know what it was but looked important.
+void printArray() //Got this from Kaityln's Github didn't know what it was but looked important. 
 {
-  for (int i = 0; i < BlockAmmount; i++)
+  for (int i = 0; i < blockAmount; i++)
   {
     Serial.print("Block No. ");
     Serial.println(i);
