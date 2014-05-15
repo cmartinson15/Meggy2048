@@ -1,4 +1,4 @@
-  #include <MeggyJrSimple.h>
+#include <MeggyJrSimple.h>
 
 void setup()
 {
@@ -9,9 +9,9 @@ void setup()
 int blockDirection;
 int blockAmount=3; //The ammount of blocks
 int marker=3; //Not sure if I need this or not yet.
+boolean spawnBlock = true;
 
-
-struct BlockEdge //This is the code for a block structure
+struct blockCorner //This is the code for a block structure
 {
   int x; //upper left coordinate
   int y;
@@ -19,28 +19,28 @@ struct BlockEdge //This is the code for a block structure
   int dir;
 };
 
-BlockEdge s1 = {6,7,12,270};
-BlockEdge s2 = {4,3,13,270};
-BlockEdge s3 = {0,1,14,270};
+blockCorner s1 = {6,7,12,-1};
+blockCorner s2 = {4,3,13,-1};
+blockCorner s3 = {0,1,14,-1};
 
 
-BlockEdge blockArray[64] = {s1, s2, s3};
+blockCorner blockArray[64] = {s1, s2, s3};
 
 
 void loop()
 {
   for (int i=0; i<blockAmount; i++)
-    { 
-      drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
-    }
+  { 
+    drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
+  }
   DisplaySlate();
   delay(125);
   Movement();
   updateBlockLocation();
   ClearSlate();
-  
+
   if (Button_A)
-     printArray();
+    printArray();
 }
 
 void printArray() //Got this from Kaityln's Github didn't know what it was but looked important. 
@@ -58,3 +58,4 @@ void printArray() //Got this from Kaityln's Github didn't know what it was but l
     Serial.println();
   }
 }
+
