@@ -1,18 +1,16 @@
 void enemy()
 {
-  if (stalker) 
+  if (creeper) 
   {  
     enemyBlockX = random(4)*2;  
     enemyBlockY = random(4)*2+1;  
-    stalker = false;
+    creeper = false;
   }
-  
-  
   if (blockArray[0].x==enemyBlockX && blockArray[0].y==enemyBlockY)
   {
-    stalker = true;
-    score--;
-    scoreKeeping;
+    creeper = true;
+    
+    SetAuxLEDs(0);
   } 
 }
 

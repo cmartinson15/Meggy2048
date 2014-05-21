@@ -21,3 +21,19 @@ void drawEnemyBlock()
   DrawPx(enemyBlockX+1,enemyBlockY,3);
   DrawPx(enemyBlockX+1,enemyBlockY-1,3);
 }
+
+void drawEnemyBlock2()
+{
+  DrawPx(enemy2BlockX,enemy2BlockY,3);
+  DrawPx(enemy2BlockX,enemy2BlockY-1,3);
+  DrawPx(enemy2BlockX+1,enemy2BlockY,3);
+  DrawPx(enemy2BlockX+1,enemy2BlockY-1,3);
+}
+
+void drawEnemyBlock3()
+{
+  DrawPx(enemy3BlockX,enemy3BlockY,3);
+  DrawPx(enemy3BlockX,enemy3BlockY-1,3);
+  DrawPx(enemy3BlockX+1,enemy3BlockY,3);
+  DrawPx(enemy3BlockX+1,enemy3BlockY-1,3);
+}

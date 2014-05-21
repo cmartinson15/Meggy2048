@@ -9,16 +9,22 @@ void setup()
 int blockDirection;
 int blockAmount=1; //The ammount of blocks
 int marker=1; //Not sure if I need this or not yet.
-int newBlockX = 0;
-int newBlockY = 3;
-int enemyBlockX = 6;
+int newBlockX = 0; //for the x of the point block
+int newBlockY = 3; //for the y of the point block
+int enemyBlockX = 6; //
 int enemyBlockY = 3;
+int enemy2BlockX = 6;
+int enemy2BlockY = 3;
+int enemy3BlockX = 6;
+int enemy3BlockY = 3;
 int score=0;
 int topLights;
 boolean initialMove=false;
 boolean spawnBlock=true;
-boolean stalker=true;
-boolean stalker2=true;
+boolean creeper=true;
+boolean gameWin=false;
+boolean gameLoose=true;
+
 
 struct blockCorner //This is the code for a block structure
 {
@@ -49,8 +55,10 @@ void loop()
   updateDirection();
   if(initialMove==true)
     updateBlockLocation(); //More block movement,
-  spawnNewBlock();
-  enemy();
+  spawnNewBlock(); //spawns the point blocks
+  enemy(); //spawns the enemy blocks
+  scoreKeeping;//not even sure if I need this or if it does anything in the loop
+  endGame();
   if (Button_A)
     printArray();
 }
