@@ -13,3 +13,11 @@ void drawNewBlock()
    DrawPx(newBlockX+1,newBlockY,12);
    DrawPx(newBlockX+1,newBlockY-1,12);
 }
+
+void drawEnemyBlock()
+{
+  DrawPx(enemyBlockX,enemyBlockY,3);
+  DrawPx(enemyBlockX,enemyBlockY-1,3);
+  DrawPx(enemyBlockX+1,enemyBlockY,3);
+  DrawPx(enemyBlockX+1,enemyBlockY-1,3);
+}

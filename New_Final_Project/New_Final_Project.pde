@@ -11,11 +11,14 @@ int blockAmount=1; //The ammount of blocks
 int marker=1; //Not sure if I need this or not yet.
 int newBlockX = 0;
 int newBlockY = 3;
+int enemyBlockX = 6;
+int enemyBlockY = 3;
 int score=0;
 int topLights;
 boolean initialMove=false;
 boolean spawnBlock=true;
-
+boolean stalker=true;
+boolean stalker2=true;
 
 struct blockCorner //This is the code for a block structure
 {
@@ -38,13 +41,16 @@ void loop()
     drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
   }
   drawNewBlock();
+  drawEnemyBlock();
+  drawEnemyBlock();
   DisplaySlate();
-  delay(100);
+  delay(125);
   Movement(); //Block movement
   updateDirection();
   if(initialMove==true)
     updateBlockLocation(); //More block movement,
   spawnNewBlock();
+  enemy();
   if (Button_A)
     printArray();
 }
