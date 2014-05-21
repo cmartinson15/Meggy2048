@@ -7,9 +7,15 @@ void setup()
 }
 
 int blockDirection;
-int blockAmount=3; //The ammount of blocks
-int marker=3; //Not sure if I need this or not yet.
-boolean spawnBlock = true;
+int blockAmount=1; //The ammount of blocks
+int marker=1; //Not sure if I need this or not yet.
+int newBlockX = 0;
+int newBlockY = 3;
+int score=0;
+int topLights;
+boolean initialMove=false;
+boolean spawnBlock=true;
+
 
 struct blockCorner //This is the code for a block structure
 {
@@ -19,26 +25,26 @@ struct blockCorner //This is the code for a block structure
   int dir;
 };
 
-blockCorner s1 = {6,7,12,-1};
-blockCorner s2 = {4,3,13,-1};
-blockCorner s3 = {0,1,14,-1};
+blockCorner s1 = {3,4,13,-1}; //block 1
 
-
-blockCorner blockArray[64] = {s1, s2, s3};
+blockCorner blockArray[64] = {s1}; //how many initial blocks
 
 
 void loop()
 {
+  ClearSlate();
   for (int i=0; i<blockAmount; i++)
   { 
     drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
   }
+  drawNewBlock();
   DisplaySlate();
-  delay(125);
-  Movement();
-  updateBlockLocation();
-  ClearSlate();
-
+  delay(100);
+  Movement(); //Block movement
+  updateDirection();
+  if(initialMove==true)
+    updateBlockLocation(); //More block movement,
+  spawnNewBlock();
   if (Button_A)
     printArray();
 }
