@@ -24,9 +24,9 @@ boolean initialMove=false; //keeps things moving smoothly
 boolean spawnBlock=true; //The point block
 boolean gameWin=false; //Winning
 boolean gameLoose=false; //Loosing
-boolean creeper=true; //first enemy
-boolean stalker=true; //second enemy
-boolean ninja=true; //third enemy
+boolean bodyguard=true; //first enemy
+boolean secretService=true; //second enemy
+boolean knight=true; //third enemy
 
 struct blockCorner //This is the code for a block structure
 {
