@@ -17,7 +17,8 @@ int enemy2BlockX = 4; //second enemy's x
 int enemy2BlockY = 3; //second enemy's y
 int enemy3BlockX = 6; //third enemy's x
 int enemy3BlockY = 3; //third enemy's y
-int score=0; //initial score, what all other scores build off of
+int score=0; //initial score, what all other scores build off of.
+int score2=0; //negative score, what the red block score builds off of
 int topLights; //the lights at the top of the meggy, used for points
 boolean initialMove=false; //keeps things moving smoothly
 boolean spawnBlock=true; //The point block
@@ -49,14 +50,14 @@ void loop()
   }
   drawNewBlock();//Draws the point block
   drawEnemyBlock();//Draws the enemy block
-  DisplaySlate();
-  delay(125);
   Movement(); //Block movement
   updateDirection(); //smooth
   if(initialMove==true) //helps the controls move smoothly  
     updateBlockLocation(); //More block movement,
   spawnNewBlock(); //spawns the point blocks
   enemy(); //spawns the enemy blocks
-  scoreKeeping;//not even sure if I need this or if it does anything in the loop
+  negativeScoreKeeping();//supposed to keep track of the amount of times the red block gets run over
   endGame(); //supposed to help determine if the player wins or not
+  DisplaySlate();
+  delay(125);
 }

@@ -13,3 +13,15 @@ void scoreKeeping()
   }
   SetAuxLEDs(topLights); //sets up the top lights
 }
+
+void negativeScoreKeeping() //measures every time the enemy block gets run over
+{
+  if(score2>=6) //spawns after getting run over 6 times total
+  {
+    enemy2();
+  }
+  if(score2>=12) //spawns after getting run over 12 times total
+  {
+    enemy3();
+  }
+}

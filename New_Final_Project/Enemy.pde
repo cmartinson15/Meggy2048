@@ -9,8 +9,7 @@ void enemy()
   if (blockArray[0].x==enemyBlockX && blockArray[0].y==enemyBlockY) //what's supposed to happen when the player runs over the red block.
   {
     creeper = true; //spawns a new enemy block
-    score--; //supposed to take away a point from the player
-    enemy2(); //supposed to do enemy2
+    score2++; //supposed to take away a point from the player
   }
   if (newBlockX==enemyBlockX && newBlockY==enemyBlockY) //prevents the blocks from spawning on top of eachother.
   {
@@ -30,8 +29,7 @@ void enemy2() //supposed to spawn a second enemy
   if (blockArray[0].x==enemy2BlockX && blockArray[0].y==enemy2BlockY) //what's supposed to happen when the player runs over the red block.
   {
     stalker = true; //spawns a new enemy block
-    score--; //supposed to take away a point from the player
-    enemy3();//supposed to do enemy 3
+    score2++; //supposed to take away a point from the player
   }
   if (enemyBlockX==enemy2BlockX && enemyBlockY==enemy2BlockY) //prevents the blocks from spawning on top of eachother.
   {
@@ -43,7 +41,7 @@ void enemy2() //supposed to spawn a second enemy
   }
 }
 
-void enemy3()
+void enemy3()//supposed to spawn third enemy
 {
   drawEnemyBlock3();
   if(ninja)
@@ -55,8 +53,7 @@ void enemy3()
   if (blockArray[0].x==enemy3BlockX && blockArray[0].y==enemy3BlockY) //what's supposed to happen when the player runs over the red block.
   {
     ninja = true; //spawns a new enemy block
-    score--; //supposed to take away a point from the player
-    enemy3();//supposed to do enemy 3
+    score2++; //supposed to take away a point from the player
   }
   if (enemyBlockX==enemy3BlockX && enemyBlockY==enemy3BlockY) //prevents the blocks from spawning on top of eachother.
   {

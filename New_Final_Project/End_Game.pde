@@ -1,19 +1,15 @@
 void endGame() //what happens at end game
 {
-  if (score==1) //supposed to have the player win at one point
+  if (score==13) //supposed to have the player win at one point
   {
-    {
-     {
       for(int i=0;i<8;i++)
       {
         for(int z=0;z<8;z++)
           {
-            DrawPx(i,z,Green);
+            DrawPx(i,z,3);
             gameWin=true;
           }
         }
-      }
-    }
   }
   if(gameWin==true) //trying to set up the win boolean
   {
@@ -23,17 +19,15 @@ void endGame() //what happens at end game
       {
         for(int z=0;z<8;z++)
           {
-            DrawPx(i,z,Red);
-            gameLoose=true;
+            DrawPx(i,z,3);
+            gameWin=true;
           }
         }
       }
     }
   }
-  if (score==-1) //supposed to have the player loose at negative one point
+  if (score2==18) //supposed to have the player loose at 9
   {
-    {
-     {
       for(int i=0;i<8;i++)
       {
         for(int z=0;z<8;z++)
@@ -42,13 +36,9 @@ void endGame() //what happens at end game
             gameLoose=true;
           }
         }
-      }
-    }
   }
   if(gameLoose==true) //trying to set up the loose boolean.
   {
-    {
-     {
       for(int i=0;i<8;i++)
       {
         for(int z=0;z<8;z++)
@@ -58,6 +48,8 @@ void endGame() //what happens at end game
           }
         }
       }
-    }
+  if (Button_A)
+  {
+    asm volatile ("  jmp 0");    //resets game, Jacob helped me with this one.
   }
 }
