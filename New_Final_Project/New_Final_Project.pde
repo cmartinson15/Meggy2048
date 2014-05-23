@@ -11,20 +11,21 @@ int blockAmount=1; //The ammount of blocks
 int marker=1; //Not sure if I need this or not yet.
 int newBlockX = 0; //for the x of the point block
 int newBlockY = 3; //for the y of the point block
-int enemyBlockX = 6; //
-int enemyBlockY = 3;
-int enemy2BlockX = 6;
-int enemy2BlockY = 3;
-int enemy3BlockX = 6;
-int enemy3BlockY = 3;
-int score=0;
-int topLights;
-boolean initialMove=false;
-boolean spawnBlock=true;
-boolean creeper=true;
-boolean gameWin=false;
-boolean gameLoose=false;
-
+int enemyBlockX = 6; //first enemy's x
+int enemyBlockY = 3;//first enemy's y
+int enemy2BlockX = 4; //second enemy's x
+int enemy2BlockY = 3; //second enemy's y
+int enemy3BlockX = 6; //third enemy's x
+int enemy3BlockY = 3; //third enemy's y
+int score=0; //initial score, what all other scores build off of
+int topLights; //the lights at the top of the meggy, used for points
+boolean initialMove=false; //keeps things moving smoothly
+boolean spawnBlock=true; //The point block
+boolean gameWin=false; //Winning
+boolean gameLoose=false; //Loosing
+boolean creeper=true; //first enemy
+boolean stalker=true; //second enemy
+boolean ninja=true; //third enemy
 
 struct blockCorner //This is the code for a block structure
 {
@@ -34,9 +35,9 @@ struct blockCorner //This is the code for a block structure
   int dir;
 };
 
-blockCorner s1 = {3,4,13,-1}; //block 1
+blockCorner s1 = {3,4,13,-1}; //Player's block
 
-blockCorner blockArray[64] = {s1}; //how many initial blocks
+blockCorner blockArray[64] = {s1}; //how many blocks that move
 
 
 void loop()
@@ -46,36 +47,16 @@ void loop()
   { 
     drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
   }
-  drawNewBlock();
-  drawEnemyBlock();  
-  drawEnemyBlock();
+  drawNewBlock();//Draws the point block
+  drawEnemyBlock();//Draws the enemy block
   DisplaySlate();
   delay(125);
   Movement(); //Block movement
-  updateDirection();
-  if(initialMove==true)
-  updateBlockLocation(); //More block movement,
+  updateDirection(); //smooth
+  if(initialMove==true) //helps the controls move smoothly  
+    updateBlockLocation(); //More block movement,
   spawnNewBlock(); //spawns the point blocks
   enemy(); //spawns the enemy blocks
   scoreKeeping;//not even sure if I need this or if it does anything in the loop
-  endGame();
-  if (Button_A)
-    printArray();
+  endGame(); //supposed to help determine if the player wins or not
 }
-
-void printArray() //Got this from Kaityln's Github didn't know what it was but looked important. 
-{
-  for (int i = 0; i < blockAmount; i++)
-  {
-    Serial.print("Block No. ");
-    Serial.println(i);
-    Serial.print("x:");
-    Serial.println(blockArray[i].x);
-    Serial.print("y:");
-    Serial.println(blockArray[i].y);
-    Serial.print("dir:");
-    Serial.println(blockArray[i].dir);
-    Serial.println();
-  }
-}
-

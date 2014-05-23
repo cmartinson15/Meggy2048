@@ -1,4 +1,3 @@
-//For this new project I don't even know if I need any of this or not but I don't want to delete it and it end up completely broken so I left it in.
 
 void updateDirection()
 {
@@ -8,7 +7,7 @@ void updateDirection()
   }
 }
 
-void updateBlockLocation() //Goes to direction, now with collision detection and blocks.
+void updateBlockLocation() //makes things run a little smoother
 {
   for(int i = 0; i < blockAmount; i++)
   {
