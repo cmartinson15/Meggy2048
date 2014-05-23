@@ -23,7 +23,7 @@ boolean initialMove=false;
 boolean spawnBlock=true;
 boolean creeper=true;
 boolean gameWin=false;
-boolean gameLoose=true;
+boolean gameLoose=false;
 
 
 struct blockCorner //This is the code for a block structure
@@ -47,14 +47,14 @@ void loop()
     drawBlock(blockArray[i].x,blockArray[i].y,blockArray[i].color); //This draws the amount of blocks in BlockArray
   }
   drawNewBlock();
-  drawEnemyBlock();
+  drawEnemyBlock();  
   drawEnemyBlock();
   DisplaySlate();
   delay(125);
   Movement(); //Block movement
   updateDirection();
   if(initialMove==true)
-    updateBlockLocation(); //More block movement,
+  updateBlockLocation(); //More block movement,
   spawnNewBlock(); //spawns the point blocks
   enemy(); //spawns the enemy blocks
   scoreKeeping;//not even sure if I need this or if it does anything in the loop

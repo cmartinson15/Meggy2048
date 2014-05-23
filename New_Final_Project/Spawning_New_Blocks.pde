@@ -9,7 +9,7 @@ void spawnNewBlock()
   if (blockArray[0].x==newBlockX && blockArray[0].y==newBlockY)
   {
     spawnBlock = true;
-    score++;
+    score++; //Adds a point for matching a point block and the player.
     scoreKeeping();
   } 
 }
